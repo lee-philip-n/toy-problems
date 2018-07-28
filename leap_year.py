@@ -21,9 +21,14 @@ def leap_year(year):
         print(False)
     else:
       print(True)
+  else:
+    print(False)
 
 if __name__ == '__main__':
   leap_year(2000)
+  leap_year(2016)
+  leap_year(2017)
+  leap_year(2020)
   leap_year(2400)
   leap_year(1800)
   leap_year(1900)
