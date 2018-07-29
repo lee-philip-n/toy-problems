@@ -1,9 +1,10 @@
-//Russian Julian and Gregorian Leap Year Calendar
-//before 1918, leap years were always divisible by 4 (Julian).
-//on 1918, the calendar was being switched.  Feburary 14th was the 32nd day of the year.
-//after 1918, leap years are divisble by 4 and not divisible by 100. And divisble by 400. (Gregorian)
-//calculate the 256th day of the year in dd.mm.yy
-
+/*
+Russian Julian and Gregorian Leap Year Calendar
+before 1918, leap years were always divisible by 4 (Julian).
+on 1918, the calendar was being switched.  Feburary 14th was the 32nd day of the year.
+after 1918, leap years are divisble by 4 and not divisible by 100. And divisble by 400. (Gregorian)
+calculate the 256th day of the year in dd.mm.yy
+*/
 const isLeapYearGregorian = (year) => {
   if (year % 4 === 0) {
     if (year % 100 === 0) {
@@ -26,11 +27,15 @@ const dayOfTheProgrammer = (inputYear) => {
   let currentMonth = 0;
 
   if (inputYear < 1918) {
-    daysInMonths = inputYear % 4 === 0 ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    daysInMonths = inputYear % 4 === 0 ?
+      [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] :
+      [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   } else if (inputYear === 1918) {
     daysInMonths = [31, 15, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   } else if (inputYear > 1918) {
-    daysInMonths = isLeapYearGregorian(inputYear) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    daysInMonths = isLeapYearGregorian(inputYear) ?
+      [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] :
+      [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 
   while (totalDays < 256) {
@@ -46,11 +51,11 @@ const dayOfTheProgrammer = (inputYear) => {
   return `${day}.${month}.${year}`;
 };
 
-// console.log(dayOfTheProgrammer(2017));
-// console.log(dayOfTheProgrammer(2016));
-// console.log(dayOfTheProgrammer(1918));
 // console.log(dayOfTheProgrammer(1800));
 // console.log(dayOfTheProgrammer(1900));
+console.log(dayOfTheProgrammer(1918));
+console.log(dayOfTheProgrammer(2016));
+console.log(dayOfTheProgrammer(2017));
 // console.log(dayOfTheProgrammer(2100));
 // console.log(dayOfTheProgrammer(2200));
 // console.log(dayOfTheProgrammer(2300));
